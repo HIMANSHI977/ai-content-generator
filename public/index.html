@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f4fb" />
+  <meta name="description" content="Create, summarize, and explore ideas with your AI Content Generator." />
+  <title>AI Content Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="AI Content Generator home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>Content<span class="brand-accent">Craft</span></span>
+      </a>
+      <div class="topbar-actions">
+        <span class="status-pill"><span class="status-dot"></span> AI workspace</span>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+          <span id="themeIcon" aria-hidden="true">☾</span>
+          <span id="themeLabel">Dark mode</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="sparkle">✦</span> YOUR CREATIVE ASSISTANT</div>
+        <h1>Turn your thoughts into<br /><span>something remarkable.</span></h1>
+        <p class="hero-copy">A little help getting from blank page to brilliant idea. Ask questions, simplify information, or find your next spark.</p>
+      </section>
+
+      <section class="workspace" aria-label="AI content tools">
+        <aside class="tool-panel">
+          <p class="panel-label">CHOOSE YOUR TOOL</p>
+          <button class="tool-button active" type="button" data-task="ask">
+            <span class="tool-icon icon-violet">✧</span>
+            <span class="tool-text"><strong>Ask AI</strong><small>Explore any question</small></span>
+            <span class="tool-chevron">›</span>
+          </button>
+          <button class="tool-button" type="button" data-task="summarize">
+            <span class="tool-icon icon-peach">≡</span>
+            <span class="tool-text"><strong>Summarize text</strong><small>Find the key points</small></span>
+            <span class="tool-chevron">›</span>
+          </button>
+          <button class="tool-button" type="button" data-task="ideas">
+            <span class="tool-icon icon-blue">✳</span>
+            <span class="tool-text"><strong>Generate ideas</strong><small>Find a fresh direction</small></span>
+            <span class="tool-chevron">›</span>
+          </button>
+          <button class="tool-button" type="button" data-task="define">
+            <span class="tool-icon icon-gold">Aa</span>
+            <span class="tool-text"><strong>Define a term</strong><small>Make it easy to understand</small></span>
+            <span class="tool-chevron">›</span>
+          </button>
+          <div class="sidebar-note">
+            <span class="note-icon">✦</span>
+            <div><strong>A thought to start with</strong><p>Good ideas grow when you give them a place to begin.</p></div>
+          </div>
+        </aside>
+
+        <section class="composer-panel">
+          <div class="composer-heading">
+            <div>
+              <p class="panel-label">YOUR WORKSPACE</p>
+              <h2 id="formTitle">Ask AI anything</h2>
+              <p id="formDescription">What would you like to explore today?</p>
+            </div>
+            <span class="heading-decoration" aria-hidden="true">✦</span>
+          </div>
+
+          <form id="generatorForm">
+            <label for="promptInput" id="inputLabel">Your question</label>
+            <textarea id="promptInput" name="text" rows="7" maxlength="20000" placeholder="For example: Explain how the JavaScript event loop works with a simple example..." required></textarea>
+            <div class="input-footer"><span id="inputHint">Be as specific as you like.</span><span id="charCount">0 / 20,000</span></div>
+
+            <div class="form-controls">
+              <div class="length-control">
+                <label for="lengthSelect">Response length</label>
+                <select id="lengthSelect" name="length">
+                  <option value="short">Short</option>
+                  <option value="medium" selected>Balanced</option>
+                  <option value="long">Detailed</option>
+                </select>
+              </div>
+              <button class="generate-button" id="generateButton" type="submit">
+                <span id="buttonIcon" aria-hidden="true">✦</span>
+                <span id="buttonText">Generate content</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </form>
+
+          <div class="error-message" id="errorMessage" role="alert" hidden></div>
+
+          <section class="result-section" id="resultSection" aria-live="polite" hidden>
+            <div class="result-heading">
+              <div><p class="panel-label">YOUR RESULT</p><h3>Made for you</h3></div>
+              <button class="copy-button" id="copyButton" type="button">▣ <span>Copy text</span></button>
+            </div>
+            <div class="result-content" id="resultContent"></div>
+          </section>
+
+          <p class="privacy-note"><span aria-hidden="true">◇</span> Your API key stays on the server. Don't include sensitive personal information in prompts.</p>
+        </section>
+      </section>
+    </main>
+
+    <footer><span>ContentCraft</span><span>Made for curious minds <span class="footer-star">✦</span></span></footer>
+  </div>
+</body>
+  <script src="/script.js" defer></script>
+
+</html>
